@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="container">
       <h1>Hello From React2</h1>
-      <Header title='Hello' />
+      <Header />
     </div>
   );
 }
