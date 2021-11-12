@@ -26,7 +26,7 @@ function App() {
   ]);
 
   // Add Task
-  Const addTask = (task) => {
+  const addTask = (task) => {
     console.log(task)
   }
 
