@@ -84,3 +84,6 @@ export default App;
 
 
 // \serve -s build -p 9000  
+
+// npm run server
+// npm start
