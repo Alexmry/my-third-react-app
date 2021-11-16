@@ -67,3 +67,6 @@ function App() {
 }
 
 export default App;
+
+
+// \serve -s build -p 9000  
