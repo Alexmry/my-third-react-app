@@ -13,10 +13,13 @@
       "reminder": true
     },
     {
-      "id": 3,
-      "text": "Food Shoping",
-      "day": "Feb 5th at 4:30pm",
-      "reminder": false
+      "id": 3
+    },
+    {
+      "text": "bo",
+      "day": "won",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
