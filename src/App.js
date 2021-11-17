@@ -4,53 +4,64 @@ import Tasks from "./components/Tasks";
 import AddTasK from "./components/AddTask";
 
 function App() {
-  const [showAddTask, setShowAddTask] = useState(false)
+  const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const getTasks = async () => {
-      const tasksFromServer = await fetchTasks()
-      setTasks(tasksFromServer)
-    }
+      const tasksFromServer = await fetchTasks();
+      setTasks(tasksFromServer);
+    };
 
     // fetchTasks()
-    getTasks()
-  }, [])
+    getTasks();
+  }, []);
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks')
-    const data = await res.json()
+    const res = await fetch("http://localhost:5000/tasks");
+    const data = await res.json();
 
     // console.log(data)
-    return data
-  }
+    return data;
+  };
+
+    // Fetch Task
+    const fetchTask = async (id) => {
+      const res = await fetch("http://localhost:5000/tasks");
+      const data = await res.json();
+  
+      // console.log(data)
+      return data;
+    };
+
+
   // Add Task
   const addTask = async (task) => {
-    const res = await fetch('http://localhost:5000/tasks', {
-      method: 'POST',
+    const res = await fetch("http://localhost:5000/tasks", {
+      method: "POST",
       headers: {
-        'Content-type': 'application/json',
+        "Content-type": "application/json",
       },
       body: JSON.stringify(task),
-    })
+    });
 
-    const data = await res.json()
+    const data = await res.json();
 
-    setTasks([...tasks, data])
+    setTasks([...tasks, data]);
 
     // console.log(task)
     // const id = Math.floor(Math.random() * 10000) + 1
     // console.log(id)
     // const newTask = {id, ...task}
     // setTasks([...tasks, newTask])
-  }
+  };
 
   // delete task
   const deleteTask = async (id) => {
     await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: 'DELETE'
-    })
+      method: "DELETE",
+    });
     // console.log('hello')
     console.log("delete", id);
     setTasks(tasks.filter((task) => task.id !== id));
@@ -69,8 +80,11 @@ function App() {
 
   return (
     <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
-      {showAddTask && <AddTasK onAdd={addTask}/>}
+      <Header
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {showAddTask && <AddTasK onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
@@ -82,8 +96,7 @@ function App() {
 
 export default App;
 
-
-// \serve -s build -p 9000  
+// \serve -s build -p 9000
 
 // npm run server
 // npm start

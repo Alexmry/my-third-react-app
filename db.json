@@ -13,13 +13,16 @@
       "reminder": true
     },
     {
-      "id": 3
-    },
-    {
       "text": "bo",
       "day": "won",
       "reminder": true,
       "id": 4
+    },
+    {
+      "text": "ruby",
+      "day": "schedule",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
