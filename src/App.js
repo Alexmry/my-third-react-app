@@ -69,7 +69,7 @@ function App() {
 
   // Toggle Reminder
 
-  const toggleReminder = (id) => {
+  const toggleReminder = async (id) => {
     console.log(id);
 
       const taskToToggle = await fetchTask(id)
@@ -83,9 +83,11 @@ function App() {
         body: JSON.stringify(upTask),
       });
 
+      const data = await res.json()
+
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
+        task.id === id ? { ...task, reminder: data.reminder } : task
       )
     );
   };

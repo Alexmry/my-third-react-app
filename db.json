@@ -21,7 +21,7 @@
     {
       "text": "ruby",
       "day": "schedule",
-      "reminder": true,
+      "reminder": false,
       "id": 5
     }
   ]
